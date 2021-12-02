@@ -21,6 +21,14 @@ for i = 1, NUM_SLOTS do
         end
 end
 
+
+function updateFuelDifference()
+    local oldFuel = turtle.getFuelLevel()
+    turtle.refuel(1)
+    AMOUNTINITEM = turtle.getFuelLevel() - oldFuel
+    AMOUNTNEEDED = fuelBuffer - turtle.getFuelLevel()
+end
+
 if #slotsWithFuel == 0 then
     print("No fuel in inventory.")
 else
@@ -29,19 +37,17 @@ else
         return print("Already At Fuel Limit.")
     end
 
-    ITEMNAME = ''
+    ITEMNAME = nil
     for i = 1, #slotsWithFuel do
         turtle.select(slotsWithFuel[i])
 
-        if ITEMNAME ~= turtle.getItemDetail()['name'] then
+        if ITEMNAME ~= turtle.getItemDetail()['name'] or ITEMNAME == nil then
             ITEMNAME = turtle.getItemDetail()['name']
+            updateFuelDifference()
         end
 
         if ITEMNAME ~= turtle.getItemDetail()['name'] then
-            local oldFuel = turtle.getFuelLevel()
-            turtle.refuel(1)
-            AMOUNTINITEM = turtle.getFuelLevel() - oldFuel
-            AMOUNTNEEDED = fuelBuffer - turtle.getFuelLevel()
+            updateFuelDifference()
         end
 
         if AMOUNTNEEDED <= 0 then
