@@ -5,5 +5,8 @@
         "fs",
         "http",
         "byteDiff"
+    ],
+    "Lua.diagnostics.disable": [
+        "lowercase-global"
     ]
 }
