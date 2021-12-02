@@ -9,7 +9,7 @@ local itemsThatCanRefuel = {"minecraft:coal", "minecraft:coal_block", "minecraft
 local slotsWithFuel = {}
 
 -- Buffer to prevent the turtle from using all fuel in inventory.
-local fuelBuffer = 1000
+local fuelBuffer = 80
 
 for i = 1, NUM_SLOTS do
         if turtle.getItemDetail(i) ~= nil then
