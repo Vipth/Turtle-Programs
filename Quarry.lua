@@ -40,6 +40,7 @@ function mineLayer()
     -- Check Fuel
     shell.run('refuel')
 	turtle.digDown()
+	turtle.down()
 	for _ = 1, quarryRadius / 2 do
 		for _ = 1, quarryRadius do
 			turtle.dig()
@@ -60,4 +61,6 @@ function mineLayer()
 	end
 end
 
-mineLayer()
+for _ = 1, 2 do
+	mineLayer()
+end
