@@ -33,4 +33,31 @@ function disposeTrashItems()
     end
 end
 
-disposeTrashItems()
+-- Function To Mine A Single Layer (default: 64 x 64)
+local quarryRadius = 6
+
+function mineLayer()
+    -- Check Fuel
+    shell.run('refuel')
+	turtle.digDown()
+	for _ = 1, quarryRadius / 2 do
+		for _ = 1, quarryRadius do
+			turtle.dig()
+			turtle.forward()
+		end
+		turtle.turnRight()
+		turtle.dig()
+		turtle.forward()
+		turtle.turnRight()
+		for _ = 1, quarryRadius do
+			turtle.dig()
+			turtle.forward()
+		end
+		turtle.turnLeft()
+		turtle.dig()
+		turtle.forward()
+		turtle.turnLeft()
+	end
+end
+
+mineLayer()
