@@ -76,7 +76,11 @@ function quarry()
 					if turtle.digDown() == false then
 						if turtle.down() == false then
 							return print("Detected Bedrock!")
+						else
+							break
 						end
+					else
+						break
 					end
 				end
 			end
