@@ -84,6 +84,7 @@ function quarry()
 					end
 				end
 				turtle.turnRight()
+				disposeTrashItems()
 				turtle.down()
 			end
 		end
