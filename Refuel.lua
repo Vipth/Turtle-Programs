@@ -46,10 +46,6 @@ else
             updateFuelDifference()
         end
 
-        if ITEMNAME ~= turtle.getItemDetail()['name'] then
-            updateFuelDifference()
-        end
-
         if AMOUNTNEEDED <= 0 then
             return print("My Fuel Is Already At The Limit. ("..fuelBuffer..")")
         end
