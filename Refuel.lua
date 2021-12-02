@@ -12,7 +12,6 @@ local slotsWithFuel = {}
 local fuelBuffer = 1000
 
 for i = 1, NUM_SLOTS do
-    if turtle.getFuelLevel() < fuelBuffer then
         if turtle.getItemDetail(i) ~= nil then
             for k, v in pairs(itemsThatCanRefuel) do
                 if turtle.getItemDetail(i)["name"] == v then
@@ -20,17 +19,17 @@ for i = 1, NUM_SLOTS do
                 end
             end
         end
-    else
-        return print(string.format("Fuel Buffer Reached (%d)."), fuelBuffer)
-    end
 end
 
 if #slotsWithFuel == 0 then
     print("No fuel in inventory.")
 else
-    for i = 1, #slotsWithFuel do
-        turtle.select(slotsWithFuel[i])
-        turtle.refuel(turtle.getItemCount())
+    while turtle.getFuelLevel() < fuelBuffer do
+        for i = 1, #slotsWithFuel do
+            turtle.select(slotsWithFuel[i])
+            while turtle.getFuelLevel() < fuelBuffer and turtle.getItemCount() ~= 0 do
+                turtle.refuel(1)
+            end
+        end
     end
-    print("Fuel: "..turtle.getFuelLevel())
 end
