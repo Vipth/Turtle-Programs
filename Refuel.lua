@@ -12,13 +12,13 @@ local itemsThatCanRefuel = {"minecraft:coal", "minecraft:coal_block", "minecraft
 local slotsWithFuel = {}
 
 for i = 1, NUM_SLOTS do
-        if turtle.getItemDetail(i) ~= nil then
-            for k, v in pairs(itemsThatCanRefuel) do
-                if turtle.getItemDetail(i)["name"] == v then
-                    table.insert(slotsWithFuel, #slotsWithFuel+1, i)
-                end
+    if turtle.getItemDetail(i) ~= nil then
+        for k, v in pairs(itemsThatCanRefuel) do
+            if turtle.getItemDetail(i)["name"] == v then
+                table.insert(slotsWithFuel, #slotsWithFuel+1, i)
             end
         end
+    end
 end
 
 
