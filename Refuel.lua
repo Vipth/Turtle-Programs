@@ -28,20 +28,36 @@ else
         print(turtle.getFuelLevel().. fuelBuffer)
         return print("Already At Fuel Limit.")
     end
+
+    ITEMNAME = ''
     for i = 1, #slotsWithFuel do
         turtle.select(slotsWithFuel[i])
-        local oldFuel = turtle.getFuelLevel()
-        turtle.refuel(1)
-        local amountInItem = turtle.getFuelLevel() - oldFuel
-        local amountNeeded = fuelBuffer - turtle.getFuelLevel()
-        if amountNeeded <= 0 then
+
+        if ITEMNAME ~= turtle.getItemDetail()['name'] then
+            ITEMNAME = turtle.getItemDetail()['name']
+        end
+
+        if ITEMNAME ~= turtle.getItemDetail()['name'] then
+            local oldFuel = turtle.getFuelLevel()
+            turtle.refuel(1)
+            AMOUNTINITEM = turtle.getFuelLevel() - oldFuel
+            AMOUNTNEEDED = fuelBuffer - turtle.getFuelLevel()
+        end
+
+        if AMOUNTNEEDED <= 0 then
             return print("My Fuel Is Already At The Limit. ("..fuelBuffer..")")
         end
-        local useAmount = math.floor(amountNeeded / amountInItem)
+
+        local useAmount = math.floor(AMOUNTNEEDED / AMOUNTINITEM)
         if useAmount > turtle.getItemCount() then
             turtle.refuel()
         else
             turtle.refuel(useAmount)
+        end
+
+        if turtle.getFuelLevel() >= fuelBuffer then
+            print("Refuel Complete!")
+            print("Fuel: "..turtle.getFuelLevel())
         end
     end 
 end
