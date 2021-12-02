@@ -57,11 +57,9 @@ function mineLayer()
 			turtle.dig()
 			turtle.forward()
 		end
-		turtle.turnLeft()
-		turtle.dig()
-		turtle.forward()
-		turtle.turnLeft()
+		turtle.turnRight()
 	end
+	disposeTrashItems()
 end
 
 for _ = 1, 2 do
