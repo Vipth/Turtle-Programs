@@ -50,29 +50,30 @@ function mineLayer()
 	turtle.down()
 	for _ = 1, quarryRadius do
 		rowNumber = rowNumber + 1
-		if rowNumber == quarryRadius then
+		for _ = 1, quarryRadius - 1 do
+			turtle.dig()
+			turtle.forward()
+		end
+		if rowNumber ~= quarryRadius then
+			if rowNumber % 2 == 0 then
+				turtle.turnLeft()
+				turtle.dig()
+				turtle.forward()
+				turtle.turnLeft()
+			else
+				turtle.turnRight()
+				turtle.dig()
+				turtle.forward()
+				turtle.turnRight()
+			end
+		else
 			for _ = 1, quarryRadius do
 				turtle.forward()
 			end
 			turtle.turnRight()
 			turtle.turnRight()
-			return
 		end
-		for _ = 1, quarryRadius - 1 do
-			turtle.dig()
-			turtle.forward()
-		end
-		if rowNumber % 2 == 0 then
-			turtle.turnLeft()
-			turtle.dig()
-			turtle.forward()
-			turtle.turnLeft()
-		else
-			turtle.turnRight()
-			turtle.dig()
-			turtle.forward()
-			turtle.turnRight()
-		end
+		
 	end
 end
 
