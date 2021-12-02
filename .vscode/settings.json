@@ -4,7 +4,9 @@
         "shell",
         "fs",
         "http",
-        "byteDiff"
+        "byteDiff",
+        "space",
+        "read"
     ],
     "Lua.diagnostics.disable": [
         "lowercase-global"

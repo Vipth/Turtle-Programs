@@ -27,6 +27,9 @@ function updateFuelDifference()
     turtle.refuel(1)
     AMOUNTINITEM = turtle.getFuelLevel() - oldFuel
     AMOUNTNEEDED = fuelBuffer - turtle.getFuelLevel()
+    if fuelBuffer > AMOUNTNEEDED then
+        return print("Already At Fuel Limit.")
+    end
 end
 
 if #slotsWithFuel == 0 then
