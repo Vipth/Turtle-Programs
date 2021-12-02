@@ -44,7 +44,7 @@ function mineLayer()
 	end
 	turtle.digDown()
 	turtle.down()
-	for _ = 1, quarryRadius / 2 do
+	for _ = 1, quarryRadius do
 		for _ = 1, quarryRadius do
 			turtle.dig()
 			turtle.forward()
