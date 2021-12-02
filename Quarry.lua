@@ -36,7 +36,7 @@ end
 
 -- Function To Mine A Single Layer (default: 64 x 64)
 -- *Stick To Even Numbers*
-function mineLayer()
+function quarry()
 	local quarryRadius = 2
 -- Check Fuel
     shell.run('refuel')
@@ -67,16 +67,14 @@ function mineLayer()
 				turtle.turnRight()
 			end
 		else
-			for _ = 1, quarryRadius do
-				turtle.forward()
-			end
-			turtle.turnRight()
-			turtle.turnRight()
+			turtle.digDown()
+			turtle.down()
+			turtle.turnLeft()
 		end
 		
 	end
 end
 
 for _ = 1, 2 do
-	mineLayer()
+	quarry()
 end
