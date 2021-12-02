@@ -44,27 +44,25 @@ function mineLayer()
 		return print("Need Fuel!")
 	end
 	
-	for _ = 1, quarryRadius / 2 do
-		turtle.digDown()
-		turtle.down()
-		for _ = 1, quarryRadius do
-			for _  = 1, quarryRadius - 1 do
-				turtle.dig()
-				turtle.forward()
-			end
-			turtle.turnRight()
+	turtle.digDown()
+	turtle.down()
+	for _ = 1, quarryRadius do
+		for _  = 1, quarryRadius - 1 do
 			turtle.dig()
 			turtle.forward()
-			turtle.turnRight()
-			for _  = 1, quarryRadius - 1 do
-				turtle.dig()
-				turtle.forward()
-			end
-			turtle.turnLeft()
-			turtle.dig()
-			turtle.forward()
-			turtle.turnLeft()
 		end
+		turtle.turnRight()
+		turtle.dig()
+		turtle.forward()
+		turtle.turnRight()
+		for _  = 1, quarryRadius - 1 do
+			turtle.dig()
+			turtle.forward()
+		end
+		turtle.turnLeft()
+		turtle.dig()
+		turtle.forward()
+		turtle.turnLeft()
 	end
 end
 
