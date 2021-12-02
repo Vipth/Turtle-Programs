@@ -63,7 +63,7 @@ else
             return print("Fuel: "..turtle.getFuelLevel())
         end
 
-        if i == #slotsWithFuel then
+        if i == #slotsWithFuel and turtle.getItemCount() == 0 then
             return print("Reached End Of Fuel Supply.")
         end
     end 
