@@ -2,14 +2,14 @@ print("Refueling...")
 
 NUM_SLOTS = 16
 
+-- Buffer to prevent the turtle from using all fuel in inventory.
+local fuelBuffer = 1600
+
 -- More to be added for E2E
 local itemsThatCanRefuel = {"minecraft:coal", "minecraft:coal_block", "minecraft:blaze_rod",
                             "minecraft:charcoal", "minecraft:lava_bucket"}
 
 local slotsWithFuel = {}
-
--- Buffer to prevent the turtle from using all fuel in inventory.
-local fuelBuffer = 1600
 
 for i = 1, NUM_SLOTS do
         if turtle.getItemDetail(i) ~= nil then
@@ -32,8 +32,12 @@ else
         turtle.select(slotsWithFuel[i])
         local oldFuel = turtle.getFuelLevel()
         turtle.refuel(1)
-        local newFuel = turtle.getFuelLevel() - oldFuel
-        local useAmount = math.floor(fuelBuffer / newFuel)
+        local amountInItem = turtle.getFuelLevel() - oldFuel
+        local amountNeeded = fuelBuffer - turtle.getFuelLevel()
+        if amountNeeded <= 0 then
+            return print("My Fuel Is Already At The Limit. ("..fuelBuffer..")")
+        end
+        local useAmount = math.floor(amountNeeded / amountInItem)
         if useAmount > turtle.getItemCount() then
             turtle.refuel()
         else
