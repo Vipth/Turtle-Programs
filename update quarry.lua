@@ -2,7 +2,7 @@ local FILENAME = '/quarry.lua'
  
 local cacheBreak = tostring(math.random(0, 99999))
  
-local res, err = http.get('https://raw.githubusercontent.com/Vipth/Turtle-Programs/main/Quarry.lua?breaker=' .. cacheBreak)
+res, err = http.get('https://raw.githubusercontent.com/Vipth/Turtle-Programs/main/Quarry.lua?breaker=' .. cacheBreak)
 if not res then error(err) end
  
 local code = res.readAll()
