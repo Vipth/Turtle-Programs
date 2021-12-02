@@ -3,6 +3,7 @@
         "turtle",
         "shell",
         "fs",
-        "http"
+        "http",
+        "byteDiff"
     ]
 }

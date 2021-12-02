@@ -27,7 +27,7 @@ then
 else
     file.write(code)
     print('WRITING UPDATE')
-    local byteDiff = string.len(code) - string.len(oldCode)
+    byteDiff = string.len(code) - string.len(oldCode)
  
     if byteDiff >= 0
     then
