@@ -43,12 +43,13 @@ function mineLayer()
 	if turtle.getFuelLevel() == 0 then
 		return print("Need Fuel!")
 	end
-	
+
 	local rowNumber = 0
-	
+
 	turtle.digDown()
 	turtle.down()
 	for _ = 1, quarryRadius do
+		rowNumber = rowNumber + 1
 		for _ = 1, quarryRadius do
 			turtle.dig()
 			turtle.forward()
