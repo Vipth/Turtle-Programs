@@ -1,4 +1,4 @@
-local FILENAME = '/quarry.lua'
+local FILENAME = '/quarry'
 
 local cacheBreak = tostring(math.random(0, 99999))
 
