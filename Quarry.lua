@@ -58,12 +58,16 @@ function quarry()
 			if rowNumber ~= quarryRadius then
 				if rowNumber % 2 == 0 then
 					turtle.turnLeft()
-					turtle.dig()
+					while turtle.detect() do
+						turtle.dig()
+					end
 					turtle.forward()
 					turtle.turnLeft()
 				else
 					turtle.turnRight()
-					turtle.dig()
+					while turtle.detect() do
+						turtle.dig()
+					end
 					turtle.forward()
 					turtle.turnRight()
 				end
