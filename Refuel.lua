@@ -54,6 +54,7 @@ else
         if useAmount > turtle.getItemCount() then
             turtle.refuel()
         else
+            print(useAmount)
             turtle.refuel(useAmount)
         end
 
