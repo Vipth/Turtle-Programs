@@ -55,15 +55,15 @@ function mineLayer()
 			turtle.forward()
 		end
 		if rowNumber % 2 == 0 then
-			turtle.turnRight()
+			turtle.turnLeft()
 			turtle.dig()
 			turtle.forward()
-			turtle.turnRight()
+			turtle.turnLeft()
 		else
-			turtle.turnLeft()
+			turtle.turnRight()
 			turtle.dig()
 			turtle.forward()
-			turtle.turnLeft()
+			turtle.turnRight()
 		end
 		if rowNumber == quarryRadius then
 			for _ = 1, 2 do
