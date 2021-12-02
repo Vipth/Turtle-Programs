@@ -56,6 +56,7 @@ function quarry()
 				turtle.dig()
 				turtle.forward()
 			end
+			shell.run('refuel')
 			if rowNumber ~= quarryRadius then
 				if rowNumber % 2 == 0 then
 					turtle.turnLeft()
