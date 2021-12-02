@@ -37,7 +37,7 @@ end
 -- Function To Mine A Single Layer (default: 64 x 64)
 -- *Stick To Even Numbers*
 function mineLayer()
-	local quarryRadius = 4
+	local quarryRadius = 2
 -- Check Fuel
     shell.run('refuel')
 	if turtle.getFuelLevel() == 0 then
