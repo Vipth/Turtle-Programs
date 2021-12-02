@@ -44,14 +44,16 @@ function mineLayer()
 	end
 	turtle.digDown()
 	turtle.down()
-	for _ = 1, (quarryRadius - 1) do
+	for _ = 1, 2 do
+		for _ = 1, (quarryRadius - 1) do
+			turtle.dig()
+			turtle.forward()
+		end
+		turtle.turnRight()
 		turtle.dig()
 		turtle.forward()
+		turtle.turnRight()
 	end
-	turtle.turnRight()
-	turtle.dig()
-	turtle.forward()
-	turtle.turnRight()
 end
 
 for _ = 1, 2 do
