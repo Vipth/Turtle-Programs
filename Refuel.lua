@@ -32,7 +32,7 @@ else
         turtle.select(slotsWithFuel[i])
         for _ = 1, turtle.getItemCount() do
             turtle.refuel()
-            if turtle.getFuelLevel() < fuelBuffer then
+            if turtle.getFuelLevel() >= fuelBuffer then
                 print('Fuel Limit Reached!')
                 print("Fuel: "..turtle.getFuelLevel())
                 return
