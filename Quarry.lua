@@ -86,6 +86,7 @@ function quarry()
 				turtle.turnRight()
 				disposeTrashItems()
 				turtle.down()
+				rowNumber = 0
 			end
 		end
 	end
