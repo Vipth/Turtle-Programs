@@ -44,7 +44,7 @@ function mineLayer()
 		return print("Need Fuel!")
 	end
 	
-	for _ = 1, quarryRadius do
+	for _ = 1, quarryRadius / 2 do
 		turtle.digDown()
 		turtle.down()
 		for _ = 1, quarryRadius do
