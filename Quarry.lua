@@ -83,6 +83,7 @@ function quarry()
 						break
 					end
 				end
+				turtle.turnRight()
 			end
 		end
 	end
