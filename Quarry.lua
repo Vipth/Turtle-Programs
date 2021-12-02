@@ -1,6 +1,8 @@
 -- Global Variables
 NUM_SLOTS = 16
 
+local quarryRadius = 2
+
 -- Filter Items We Don't Want
 local trash_items = {
     'minecraft:cobblestone',
@@ -37,7 +39,6 @@ end
 -- Function To Mine A Single Layer (default: 64 x 64)
 -- *Stick To Even Numbers*
 function quarry()
-	local quarryRadius = 2
 -- Check Fuel
     shell.run('refuel')
 	if turtle.getFuelLevel() == 0 then

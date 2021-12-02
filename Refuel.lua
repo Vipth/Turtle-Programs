@@ -3,7 +3,7 @@ print("Refueling...")
 NUM_SLOTS = 16
 
 -- Buffer to prevent the turtle from using all fuel in inventory.
-local fuelBuffer = 1000
+local fuelBuffer = 1600
 
 -- More to be added for E2E
 local itemsThatCanRefuel = {"minecraft:coal", "minecraft:coal_block", "minecraft:blaze_rod",
