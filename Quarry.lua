@@ -48,33 +48,36 @@ function quarry()
 
 	turtle.digDown()
 	turtle.down()
-	for _ = 1, quarryRadius do
-		rowNumber = rowNumber + 1
-		for _ = 1, quarryRadius - 1 do
-			turtle.dig()
-			turtle.forward()
-		end
-		if rowNumber ~= quarryRadius then
-			if rowNumber % 2 == 0 then
-				turtle.turnLeft()
+	while true do
+		for _ = 1, quarryRadius do
+			rowNumber = rowNumber + 1
+			for _ = 1, quarryRadius - 1 do
 				turtle.dig()
 				turtle.forward()
-				turtle.turnLeft()
-			else
-				turtle.turnRight()
-				turtle.dig()
-				turtle.forward()
-				turtle.turnRight()
 			end
-		else
-			turtle.digDown()
-			turtle.down()
-			turtle.turnRight()
+			if rowNumber ~= quarryRadius then
+				if rowNumber % 2 == 0 then
+					turtle.turnLeft()
+					turtle.dig()
+					turtle.forward()
+					turtle.turnLeft()
+				else
+					turtle.turnRight()
+					turtle.dig()
+					turtle.forward()
+					turtle.turnRight()
+				end
+			else
+				while true do
+					if turtle.digDown() == false then
+						if turtle.down() == false then
+							return print("Detected Bedrock!")
+						end
+					end
+				end
+			end
 		end
-		
 	end
 end
 
-for _ = 1, 2 do
-	quarry()
-end
+quarry()
