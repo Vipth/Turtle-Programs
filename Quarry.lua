@@ -69,7 +69,7 @@ function quarry()
 		else
 			turtle.digDown()
 			turtle.down()
-			turtle.turnLeft()
+			turtle.turnRight()
 		end
 		
 	end
