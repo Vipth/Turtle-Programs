@@ -47,14 +47,14 @@ else
         end
 
         if AMOUNTNEEDED <= 0 then
-            return print("My Fuel Is Already At The Limit. ("..fuelBuffer..")")
+            print("Refuel Complete!")
+            return print("Fuel: "..turtle.getFuelLevel())
         end
 
         local useAmount = math.floor(AMOUNTNEEDED / AMOUNTINITEM)
         if useAmount > turtle.getItemCount() then
             turtle.refuel()
         else
-            print(useAmount)
             turtle.refuel(useAmount)
         end
 
