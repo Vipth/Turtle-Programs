@@ -33,12 +33,12 @@ function disposeTrashItems()
     end
 end
 
+
 -- Function To Mine A Single Layer (default: 64 x 64)
 -- *Stick To Even Numbers*
-local quarryRadius = 4
-
 function mineLayer()
-    -- Check Fuel
+	local quarryRadius = 4
+-- Check Fuel
     shell.run('refuel')
 	if turtle.getFuelLevel() == 0 then
 		return print("Need Fuel!")
@@ -50,6 +50,14 @@ function mineLayer()
 	turtle.down()
 	for _ = 1, quarryRadius do
 		rowNumber = rowNumber + 1
+		if rowNumber == quarryRadius then
+			for _ = 1, quarryRadius do
+				turtle.forward()
+			end
+			turtle.turnRight()
+			turtle.turnRight()
+			return
+		end
 		for _ = 1, quarryRadius - 1 do
 			turtle.dig()
 			turtle.forward()
@@ -64,12 +72,6 @@ function mineLayer()
 			turtle.dig()
 			turtle.forward()
 			turtle.turnRight()
-		end
-		if rowNumber == quarryRadius then
-			for _ = 1, 2 do
-				turtle.turnLeft()
-			end
-		return
 		end
 	end
 end
