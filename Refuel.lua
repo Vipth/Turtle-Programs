@@ -60,7 +60,7 @@ else
 
         if turtle.getFuelLevel() >= fuelBuffer then
             print("Refuel Complete!")
-            print("Fuel: "..turtle.getFuelLevel())
+            return print("Fuel: "..turtle.getFuelLevel())
         end
     end 
 end
