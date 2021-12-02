@@ -34,6 +34,7 @@ function disposeTrashItems()
 end
 
 -- Function To Mine A Single Layer (default: 64 x 64)
+-- *Stick To Even Numbers*
 local quarryRadius = 6
 
 function mineLayer()
