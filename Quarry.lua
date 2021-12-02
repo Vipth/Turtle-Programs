@@ -39,6 +39,9 @@ local quarryRadius = 6
 function mineLayer()
     -- Check Fuel
     shell.run('refuel')
+	if turtle.getFuelLevel() == 0 then
+		return print("Need Fuel!")
+	end
 	turtle.digDown()
 	turtle.down()
 	for _ = 1, quarryRadius / 2 do
