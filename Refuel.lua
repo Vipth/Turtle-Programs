@@ -25,6 +25,7 @@ if #slotsWithFuel == 0 then
     print("No fuel in inventory.")
 else
     if turtle.getFuelLevel() >= fuelBuffer then
+        print(turtle.getFuelLevel().. fuelBuffer)
         return print("Already At Fuel Limit.")
     end
     for i = 1, #slotsWithFuel do
