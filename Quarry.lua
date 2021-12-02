@@ -84,6 +84,7 @@ function quarry()
 					end
 				end
 				turtle.turnRight()
+				turtle.down()
 			end
 		end
 	end
