@@ -133,17 +133,20 @@ end
 
 -- Store Inventory
 function depositItems()
-	local fuelItems = {"minecraft:coal", "minecraft:coal_block", "minecraft:blaze_rod",
-						"minecraft:charcoal", "minecraft:lava_bucket"}
+	local fuelItems = {"minecraft:coal", "minecraft:coal_block", "minecraft:blaze_rod", "minecraft:charcoal", "minecraft:lava_bucket"}
 	local enderChestSlot = getItemIndex("enderstorage:ender_storage")
 	turtle.select(enderChestSlot)
 	turtle.place()
 	for i = 1, NUM_SLOTS do
-		for _, v in pairs(fuelItems) do
-			if turtle.getItemDetail(i)['name'] ~= nil then
-				if turtle.getItemDetail(i)['name'] ~= v then
+		if turtle.getItemDetail(i) ~= nil then
+			for k, v in pairs(fuelItems) do
+				if turtle.getItemDetail(i)['name'] == v then
+					break
+					
+				else
 					turtle.select(i)
 					turtle.drop()
+					break
 				end
 			end
 		end
