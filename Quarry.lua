@@ -157,11 +157,16 @@ function depositItems()
 end
 
 
-
+function fixInventory()
+	stack()
+	compact()
+	space()
+	sort()
+end
 
 -- Function To Mine A Single Layer (default: 64 x 64)
 -- *Stick To Even Numbers*
-function quarry()
+function main()
 -- Check Fuel
     shell.run('refuel')
 	if turtle.getFuelLevel() == 0 then
@@ -180,10 +185,7 @@ function quarry()
 				turtle.forward()
 			end
 			shell.run('refuel')
-			stack()
-			compact()
-			space()
-			sort()
+			fixInventory()
 			if rowNumber ~= quarryRadius then
 				if rowNumber % 2 == 0 then
 					turtle.turnLeft()
@@ -223,4 +225,4 @@ function quarry()
 end
 
 
-depositItems()
+fixInventory()
