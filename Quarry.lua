@@ -139,8 +139,8 @@ function depositItems()
 	turtle.select(enderChestSlot)
 	turtle.place()
 	for i = 1, NUM_SLOTS do
-		for k, v in pairs(fuelItems) do
-			if turtle.getItemDetail()['name'] ~= v then
+		for _, v in pairs(fuelItems) do
+			if turtle.getItemDetail(i)['name'] ~= v then
 				turtle.select(i)
 				turtle.drop()
 			end
