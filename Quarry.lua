@@ -18,7 +18,7 @@ local trash_items = {
 
 
 -- Find The Index Of An Item
-local function getItemIndex(itemName)
+function getItemIndex(itemName)
 	for i = 1, NUM_SLOTS do
 		if turtle.getItemDetail(i) ~= nil then
 			if turtle.getItemDetail(i)['name'] == itemName then
@@ -30,7 +30,7 @@ end
 
 
 -- Function To Throw Away Trash Items
-local function disposeTrashItems()
+function disposeTrashItems()
     local slotsWithTrash = {}
     for i = 1, NUM_SLOTS do
         if turtle.getItemDetail(i) ~= nil then
@@ -52,7 +52,7 @@ end
 -- Sort Inventory Function (https://pastebin.com/AqukeQKf)
 local slot = 0
 
-local function stack()
+function stack()
 	print("SORTER: Stacking Items")
 	for i = 1, 15 do
 		slot = turtle.getItemSpace(i)
@@ -68,7 +68,7 @@ local function stack()
 	end
 end
 
-local function compact()
+function compact()
 	print("SORTER: Compressing Open Space")
 	for i = 1, NUM_SLOTS do
 		if turtle.getItemCount(i) == 0 then
@@ -83,7 +83,7 @@ local function compact()
 	end
 end
 
-local function verifySpace()
+function verifySpace()
 	if s == 1 then
 		print("SORTER: Verified space")
 		return
@@ -94,7 +94,7 @@ local function verifySpace()
 	end
 end
 
-local function space()
+function space()
 	print("SORTER: Checking for available space")
 
 	s = 0
@@ -109,7 +109,7 @@ local function space()
 	verifySpace()
 end
 
-local function sort()
+function sort()
 	print("SORTER: Commensing sorting")
 	for i=1,l-1 do
 		for j=i+2,l+1 do
@@ -132,7 +132,7 @@ local function sort()
 end
 
 -- Store Inventory
-local function depositItems()
+function depositItems()
 	
 end
 
@@ -141,7 +141,7 @@ end
 
 -- Function To Mine A Single Layer (default: 64 x 64)
 -- *Stick To Even Numbers*
-local function quarry()
+function quarry()
 -- Check Fuel
     shell.run('refuel')
 	if turtle.getFuelLevel() == 0 then
