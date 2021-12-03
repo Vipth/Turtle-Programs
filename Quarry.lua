@@ -146,7 +146,9 @@ function depositItems()
 			end
 		end
 	end
+	turtle.select(16)
 	turtle.dig()
+	turtle.select(1)
 end
 
 
@@ -216,4 +218,4 @@ function quarry()
 end
 
 
-print(getItemIndex("minecraft:cobblestone"))
+depositItems()
