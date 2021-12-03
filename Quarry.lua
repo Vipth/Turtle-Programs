@@ -1,7 +1,7 @@
 -- Global Variables
 NUM_SLOTS = 16
 
-local quarryRadius = 2
+local quarryRadius = 16
 
 -- Filter Items We Don't Want
 local trash_items = {
