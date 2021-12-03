@@ -16,8 +16,21 @@ local trash_items = {
     'chisel:limestone2',
 }
 
+
+-- Find The Index Of An Item
+local function getItemIndex(itemName)
+	for i = 1, NUM_SLOTS do
+		if turtle.getItemDetail(i) ~= nil then
+			if turtle.getItemDetail(i)['name'] == itemName then
+				return i
+			end
+		end
+	end
+end
+
+
 -- Function To Throw Away Trash Items
-function disposeTrashItems()
+local function disposeTrashItems()
     local slotsWithTrash = {}
     for i = 1, NUM_SLOTS do
         if turtle.getItemDetail(i) ~= nil then
@@ -118,6 +131,14 @@ local function sort()
 	turtle.select(1)
 end
 
+-- Store Inventory
+local function depositItems()
+	
+end
+
+
+
+
 -- Function To Mine A Single Layer (default: 64 x 64)
 -- *Stick To Even Numbers*
 local function quarry()
@@ -180,4 +201,5 @@ local function quarry()
 	end
 end
 
-quarry()
+
+getItemIndex("minecraft:cobblestone")
