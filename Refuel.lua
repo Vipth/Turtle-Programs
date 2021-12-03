@@ -1,4 +1,4 @@
-print("Refueling...")
+print("REFUELER: Refueling...")
 
 NUM_SLOTS = 16
 
@@ -28,16 +28,16 @@ function updateFuelDifference()
     AMOUNTINITEM = turtle.getFuelLevel() - oldFuel
     AMOUNTNEEDED = fuelBuffer - turtle.getFuelLevel()
     if fuelBuffer > AMOUNTNEEDED then
-        return print("Already At Fuel Limit.")
+        return print("REFUELER: Already At Fuel Limit.")
     end
 end
 
 if #slotsWithFuel == 0 then
-    print("No fuel in inventory.")
+    print("REFUELER: No fuel in inventory.")
 else
     if turtle.getFuelLevel() >= fuelBuffer then
         print(turtle.getFuelLevel().. fuelBuffer)
-        return print("Already At Fuel Limit.")
+        return print("REFUELER: Already At Fuel Limit.")
     end
 
     ITEMNAME = nil
@@ -50,8 +50,8 @@ else
         end
 
         if AMOUNTNEEDED <= 0 then
-            print("Refuel Complete!")
-            return print("Fuel: "..turtle.getFuelLevel())
+            print("REFUELER: Refuel Complete!")
+            return print("REFUELER: Fuel: "..turtle.getFuelLevel())
         end
 
         local useAmount = math.floor(AMOUNTNEEDED / AMOUNTINITEM)
@@ -62,12 +62,12 @@ else
         end
 
         if turtle.getFuelLevel() >= fuelBuffer then
-            print("Refuel Complete!")
-            return print("Fuel: "..turtle.getFuelLevel())
+            print("REFUELER: Refuel Complete!")
+            return print("REFUELER: Fuel: "..turtle.getFuelLevel())
         end
 
         if i == #slotsWithFuel and turtle.getItemCount() == 0 then
-            return print("Reached End Of Fuel Supply.")
+            return print("REFUELER: Reached End Of Fuel Supply.")
         end
     end 
 end
