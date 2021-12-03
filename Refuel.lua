@@ -6,14 +6,14 @@ NUM_SLOTS = 16
 local fuelBuffer = 1600
 
 -- More to be added for E2E
-local itemsThatCanRefuel = {"minecraft:coal", "minecraft:coal_block", "minecraft:blaze_rod",
+local fuelItems = {"minecraft:coal", "minecraft:coal_block", "minecraft:blaze_rod",
                             "minecraft:charcoal", "minecraft:lava_bucket"}
 
 local slotsWithFuel = {}
 
 for i = 1, NUM_SLOTS do
     if turtle.getItemDetail(i) ~= nil then
-        for k, v in pairs(itemsThatCanRefuel) do
+        for k, v in pairs(fuelItems) do
             if turtle.getItemDetail(i)["name"] == v then
                 table.insert(slotsWithFuel, #slotsWithFuel+1, i)
             end
