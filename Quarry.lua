@@ -140,9 +140,11 @@ function depositItems()
 	turtle.place()
 	for i = 1, NUM_SLOTS do
 		for _, v in pairs(fuelItems) do
-			if turtle.getItemDetail(i)['name'] ~= v and turtle.getItemDetail(i)['name'] ~= nil then
-				turtle.select(i)
-				turtle.drop()
+			if turtle.getItemDetail(i)['name'] ~= nil then
+				if turtle.getItemDetail(i)['name'] ~= v then
+					turtle.select(i)
+					turtle.drop()
+				end
 			end
 		end
 	end
