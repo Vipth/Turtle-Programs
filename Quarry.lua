@@ -1,6 +1,7 @@
 -- Global Variables
 NUM_SLOTS = 16
 
+-- (default: 16 x 16)
 local quarryRadius = 16
 
 -- Filter Items We Don't Want
@@ -142,7 +143,7 @@ function depositItems()
 			for k, v in pairs(fuelItems) do
 				if turtle.getItemDetail(i)['name'] == v then
 					break
-					
+
 				else
 					turtle.select(i)
 					turtle.drop()
@@ -164,7 +165,7 @@ function fixInventory()
 	sort()
 end
 
--- Function To Mine A Single Layer (default: 64 x 64)
+-- Function To Mine A Single Layer
 -- *Stick To Even Numbers*
 function main()
 -- Check Fuel
